@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript(ES6) Advanced Concepts Assignment 2</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="./output.css" rel="stylesheet" />
+    <style>
+      /* Smooth entrance animation */
+      .fade-in {
+        animation: fadeIn 0.8s ease forwards;
+        opacity: 0;
+      }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900 via-slate-900 bg-black text-white"
+  >
+    <!-- HEADER -->
+    <header class="text-center py-12 fade-in">
+      <h1
+        class="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent"
+      >
+        JavaScript(ES6) Advanced Concepts Assignment 2
+      </h1>
+      <p class="text-slate-400 mt-4 max-w-xl mx-auto">
+        Click a task. No clashes. Clean JavaScript Code. <strong>Check Console</strong>
+      </p>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-4xl mx-auto px-6 pb-20 space-y-12">
+      <!-- SECTION TEMPLATE -->
+      <section
+        class="fade-in bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl"
+      >
+        <h2 class="section-title">Section 1</h2>
+        <div class="task-list">
+          <button class="task-btn hover:font-bold" data-task="task1_1">
+            Task 1.1
+          </button>
+          <button class="task-btn hover:font-bold" data-task="task1_2">
+            Task 1.2
+          </button>
+          <button class="task-btn hover:font-bold" data-task="task1_3">
+            Task 1.3
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="fade-in bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl"
+      >
+        <h2 class="section-title">Section 2</h2>
+        <div class="task-list">
+          <button class="task-btn hover:font-bold" data-task="task2_1">
+            Task 2.1
+          </button>
+          <button class="task-btn hover:font-bold" data-task="task2_2">
+            Task 2.2
+          </button>
+          <button class="task-btn hover:font-bold" data-task="task2_3">
+            Task 2.3
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="fade-in bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl"
+      >
+        <h2 class="section-title">Section 3</h2>
+        <div class="task-list">
+          <button class="task-btn hover:font-bold" data-task="task3_1">
+            Task 3.1
+          </button>
+          <button class="task-btn hover:font-bold" data-task="task3_2">
+            Task 3.2
+          </button>
+          <button class="task-btn hover:font-bold" data-task="task3_3">
+            Task 3.3
+          </button>
+        </div>
+      </section>
+
+      <!-- FINAL CHALLENGE -->
+      <section
+        class="fade-in bg-gradient-to-r from-red-600/20 to-orange-500/20 backdrop-blur-xl border border-red-500/30 rounded-2xl p-8 shadow-2xl"
+      >
+        <h2
+          class="text-3xl font-bold text-red-400 mb-6 text-center hover:font-extrabold"
+        >
+          Final Challenge
+        </h2>
+        <button class="final-btn" data-task="final_challenge">
+          RUN FINAL CHALLENGE
+        </button>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
