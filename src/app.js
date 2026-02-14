@@ -112,10 +112,7 @@ function task1_2() {
   console.log("Filtered Array (Passed Students) =", passStudent);
 
   // Total students k marks by reduce
-  let totalMarks = passStudent.reduce(
-    (acc, student) => acc + student.marks,
-    0,
-  );
+  let totalMarks = passStudent.reduce((acc, student) => acc + student.marks, 0);
   console.log(`Total marks of passed students = ${totalMarks}`);
 
   ///////////////////////// Condition change /////////////////////////
@@ -129,4 +126,28 @@ function task1_2() {
     0,
   );
   console.log(`Total marks of top students = ${totalTopMarks}`);
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Task 1.3 – Custom Array Method Simulation
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function task1_3() {
+  console.clear();
+  console.log("==================== Task 1.3 ====================");
+
+  let arr = ["Fir'aun", "Dajjal", "Iblis", "Namrud", "Asim munir"];
+  function villains(array, callback) {
+    let result = [];
+    for (let i = 0; i < array.length; i++) {
+      console.log(`Villian no ${i}, Villains k name = ${array[i]}`);
+      result.push(callback(array[i], i, array));
+    }
+    return result;
+  }
+  //////////// Custom Array ////////////
+  let newArr = villains(arr, (value) => value.toUpperCase());
+  console.log("Custom array k baad =", newArr);
+
+  //////////// Print Orignal array ////////////
+  let originalArr = arr.map((value) => value.toUpperCase());
+  console.log("Original Array =", originalArr);
 }
