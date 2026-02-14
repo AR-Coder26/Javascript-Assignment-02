@@ -196,3 +196,37 @@ function task2_1() {
   console.log("After declaration let =", LetB);
   console.log("After declaration const =", constC);
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Task 2.2 – Call Stack Observation
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function task2_2() {
+  console.clear();
+  console.log("==================== Task 2.2 ====================");
+
+  function first() {
+    console.log("Enter first()");
+    second();
+    console.log("Exit first()");
+  }
+
+  function second() {
+    console.log("Enter second()");
+    third();
+    console.log("Exit second()");
+  }
+
+  function third() {
+    console.log("Enter third()");
+
+    // async operation
+    setTimeout(() => {
+      console.log("Async task completed (setTimeout)")
+    }, 0);
+
+    console.log("Exit third()");
+  }
+
+  // start execution
+  first();
+}
