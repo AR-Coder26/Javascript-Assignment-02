@@ -151,3 +151,48 @@ function task1_3() {
   let originalArr = arr.map((value) => value.toUpperCase());
   console.log("Original Array =", originalArr);
 }
+// Section 2: JavaScript Behind the Scenes
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Task 2.1 – Hoisting Reality Check
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function task2_1() {
+  console.clear();
+  console.log("==================== Task 2.1 ====================");
+
+  //////////// Using before declaration ////////////
+  try {
+    console.log("var before declaration =", varA);
+  } catch (e) {
+    console.log("var failed before declaration");
+  }
+
+  try {
+    console.log("let before declaration =", LetB);
+  } catch (e) {
+    console.log("let failed send to temporal dead zone TDZ");
+  }
+
+  try {
+    console.log("const before declaration =", constC);
+  } catch (e) {
+    console.log("const failed send to temporal dead zone TDZ");
+  }
+
+  try {
+    sayHello();
+  } catch (e) {
+    console.log("function call failed");
+  }
+
+  var varA = "Var varaible";
+  let LetB = "Let variable";
+  const constC = "Const variable";
+
+  function sayHello() {
+    console.log("Function declaration worked before definition");
+  }
+
+  console.log("After declaration var =", varA);
+  console.log("After declaration let =", LetB);
+  console.log("After declaration const =", constC);
+}
