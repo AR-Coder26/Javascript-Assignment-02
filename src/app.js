@@ -91,3 +91,42 @@ function task1_1() {
     "ForEach me koi nayi array return nahi hoti, sirf hr km k liye loop chalta hai",
   );
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Task 1.2 – Filter + Reduce Combination
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function task1_2() {
+  console.clear();
+  console.log("==================== Task 1.2 ====================");
+
+  // array object
+  let students = [
+    { name: "Ammad", marks: 99.9 },
+    { name: "Zahir", marks: 89 },
+    { name: "Mubeen-ul-Islam", marks: 79 },
+    { name: "Moiz khattri", marks: 69 },
+  ];
+
+  ///////////////////////// Condition 1 /////////////////////////
+  console.log("===== if marks >= 60 =====");
+  let passStudent = students.filter((student) => student.marks >= 60);
+  console.log("Filtered Array (Passed Students) =", passStudent);
+
+  // Total students k marks by reduce
+  let totalMarks = passStudent.reduce(
+    (acc, student) => acc + student.marks,
+    0,
+  );
+  console.log(`Total marks of passed students = ${totalMarks}`);
+
+  ///////////////////////// Condition change /////////////////////////
+  console.log("===== if marks >= 80 =====");
+  let topStudents = students.filter((student) => student.marks >= 80);
+  console.log("Filtered Array (Top Students) =", topStudents);
+
+  // Reduce: Total marks of top students
+  let totalTopMarks = topStudents.reduce(
+    (acc, student) => acc + student.marks,
+    0,
+  );
+  console.log(`Total marks of top students = ${totalTopMarks}`);
+}
