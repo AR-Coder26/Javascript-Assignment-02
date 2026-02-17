@@ -26,7 +26,7 @@ buttons.forEach((btn) => {
         break;
 
       case "task2_3":
-        task2_2();
+        task2_3();
         break;
       /////////////////////////////////////////////
       case "task3_1":
@@ -229,4 +229,34 @@ function task2_2() {
 
   // start execution
   first();
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Task 2.3 – Closure Proof
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function task2_3() {
+  console.clear();
+  console.log("==================== Task 2.3 ====================");
+
+  function outer() {
+    let counter = 0; // ye variable inner function use kry ga
+
+    return function inner() {
+      console.log(`Current counter value = ${counter}`);
+      counter++;
+    };
+  }
+
+  let closureFn = outer(); // function create hua, counter memory mei lock hogya
+
+  closureFn(); // 0
+  closureFn(); // 1
+
+  // outer variable directly access nahi hosakta
+  try {
+    console.log(counter);
+  } catch (e) {
+    console.log("Outer variable direct access sy fail hogya");
+  }
+
+  closureFn(); // 2
 }
