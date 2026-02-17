@@ -284,3 +284,26 @@ function task3_1() {
   console.log(`Name = ${name}, \n Role = ${role}, \n Age = ${age}, \n Country = ${country}`);
   console.log(user);
 }
+///////////////////////////////////////////////////////
+// Task 3.2 – Rest Operator in Functions
+///////////////////////////////////////////////////////
+function task3_2() {
+  console.clear();
+  console.log("==================== Task 3.2 ====================");
+
+  // function ko abhi nhi pata k kitni value aany wali hai 
+  function totalExpense(...amounts) {
+    // rest operator sab values ko ek aray mei collect krta hai
+    let total = 0;
+
+    for (let i = 0; i < amounts.length; i++) {
+      total += amounts[i]; // total calculation
+    }
+
+    return total;
+  }
+
+  console.log("Expense 1 =", totalExpense(100));
+  console.log("Expense 2 =", totalExpense(100, 200, 300));
+  console.log("Expense 3 =", totalExpense(50, 75, 125, 250));
+}
