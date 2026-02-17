@@ -221,7 +221,7 @@ function task2_2() {
 
     // async operation
     setTimeout(() => {
-      console.log("Async task completed (setTimeout)")
+      console.log("Async task completed (setTimeout)");
     }, 0);
 
     console.log("Exit third()");
@@ -259,4 +259,28 @@ function task2_3() {
   }
 
   closureFn(); // 2
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Task 3.1 – Destructuring with Defaults
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function task3_1() {
+  console.clear();
+  console.log("==================== Task 3.1 ====================");
+
+  // object mei jaan boch k koch properties missing hy
+  let user = {
+    name: "Ammad",
+    role: "Student",
+  };
+
+  // destructuring with default values
+  const {
+    name,   // name aur role user k object sy agaye
+    role,
+    age = 18,          // object mei nahi thay is liye default agar property moujod hoo tw default ignore hojata hy
+    country = "Pakistan", // default apply hoga
+  } = user;
+
+  console.log(`Name = ${name}, \n Role = ${role}, \n Age = ${age}, \n Country = ${country}`);
+  console.log(user);
 }
