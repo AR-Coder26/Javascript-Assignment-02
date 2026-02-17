@@ -275,13 +275,15 @@ function task3_1() {
 
   // destructuring with default values
   const {
-    name,   // name aur role user k object sy agaye
+    name, // name aur role user k object sy agaye
     role,
-    age = 18,          // object mei nahi thay is liye default agar property moujod hoo tw default ignore hojata hy
+    age = 18, // object mei nahi thay is liye default agar property moujod hoo tw default ignore hojata hy
     country = "Pakistan", // default apply hoga
   } = user;
 
-  console.log(`Name = ${name}, \n Role = ${role}, \n Age = ${age}, \n Country = ${country}`);
+  console.log(
+    `Name = ${name}, \n Role = ${role}, \n Age = ${age}, \n Country = ${country}`,
+  );
   console.log(user);
 }
 ///////////////////////////////////////////////////////
@@ -291,7 +293,7 @@ function task3_2() {
   console.clear();
   console.log("==================== Task 3.2 ====================");
 
-  // function ko abhi nhi pata k kitni value aany wali hai 
+  // function ko abhi nhi pata k kitni value aany wali hai
   function totalExpense(...amounts) {
     // rest operator sab values ko ek aray mei collect krta hai
     let total = 0;
@@ -306,4 +308,34 @@ function task3_2() {
   console.log("Expense 1 =", totalExpense(100));
   console.log("Expense 2 =", totalExpense(100, 200, 300));
   console.log("Expense 3 =", totalExpense(50, 75, 125, 250));
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Task 3.3 – Spread Operator & References
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function task3_3() {
+  console.clear();
+  console.log("==================== Task 3.3 ====================");
+
+  let original = {
+    name: "Ammad",
+    address: {
+      city: "Lahore",
+    },
+  };
+
+  let directRef = original; // ye same memory ko point kr raha hai
+
+  directRef.address.city = "Karachi";
+
+  console.log("After direct reference change");
+  console.log("Original city =", original.address.city);
+  console.log("DirectRef city =", directRef.address.city);
+
+  let shallowCopy = { ...original };
+
+  shallowCopy.address.city = "Islamabad"; // nested object same hi hai
+
+  console.log("After shallow copy nested change");
+  console.log("Original city =", original.address.city);
+  console.log("ShallowCopy city =", shallowCopy.address.city);
 }
