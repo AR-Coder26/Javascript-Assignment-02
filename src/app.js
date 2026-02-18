@@ -339,3 +339,69 @@ function task3_3() {
   console.log("Original city =", original.address.city);
   console.log("ShallowCopy city =", shallowCopy.address.city);
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Final Project – JavaScript Data Processor App
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function final_challenge() {
+  console.clear();
+  console.log("==================== Final Project ====================");
+
+  ////////// Dataset //////////
+  const dataset = [
+    { id: 1, name: "Ali", score: 70, active: true },
+    { id: 2, name: "Sara", score: 90, active: true },
+    { id: 3, name: "Ahmed", score: 40, active: false },
+    { id: 4, name: "Hina", score: 85, active: true },
+  ];
+
+  console.log("Initial Dataset =", dataset);
+
+  ////////// Closure (execution counter) //////////
+  function executionTracker() {
+    let count = 0;
+    return function () {
+      count++;
+      console.log(`Pipeline executed ${count} time(s)`);
+    };
+  }
+
+  const track = executionTracker();
+
+  ////////// Processing Pipeline //////////
+  function processData(data) {
+    track(); // closure call
+
+    // filter active users
+    let filtered = data.filter(({ active }) => active === true);
+    console.log("After Filter (active users) =", filtered);
+
+    // map transform (add grade field using spread)
+    let mapped = filtered.map(({ id, name, score }) => {
+      let grade = score >= 80 ? "A" : "B";
+      return { id, name, score, grade };
+    });
+    console.log("After Map (added grade) =", mapped);
+
+    // reduce aggregate
+    let totalScore = mapped.reduce((acc, { score }) => acc + score, 0);
+    console.log("Total Score (Reduce Result) =", totalScore);
+
+    return { mapped, totalScore };
+  }
+
+  let result = processData(dataset);
+
+  ////////// Experiment Logs //////////
+  console.log("========== Experiment Logs ==========");
+
+  console.log(`
+1) Filter ne automatically new array return ki, original dataset change nahi hua.
+
+2) Spread use krny ke bawajood nested hota tw reference share hota (yahan simple object tha is liye safe tha).
+
+3) Closure ka counter har dafa pipeline run par increment ho raha hai, even jab processData dobara call kiya.
+  `);
+
+  // re-run to observe closure behavior
+  processData(dataset);
+}
